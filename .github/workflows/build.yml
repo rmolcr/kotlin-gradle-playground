@@ -1,0 +1,40 @@
+---
+name: Continuous Integration
+
+env:
+  JAVA_VERSION: '17'
+  JAVA_DIST: 'zulu'
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build.yml"
+      - "src/**"
+      - "*.gradle.kts"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/build.yml"
+      - "src/**"
+      - "*.gradle.kts"
+
+jobs:
+  build:
+    name: Build code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up JDK ${{ env.JAVA_VERSION }}
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ env.JAVA_VERSION }}
+          distribution: ${{ env.JAVA_DIST}}
+
+      - name: Gradle build and test
+        run:
+          gradle compileJava test
