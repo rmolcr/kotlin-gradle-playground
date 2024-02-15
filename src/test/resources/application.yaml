@@ -1,0 +1,20 @@
+app:
+  breaches:
+    api:
+      baseUrl: "https://haveibeenpwned.com/api/v2"
+  security:
+    local:
+      users:
+        - username: user1
+          password: user1p
+          roles:
+            - event.write
+            - message.read
+            - message.write
+        - username: user2
+          password: user2p
+          roles:
+            - message.read
+        - username: user3
+          password: user3p
+          roles: []
