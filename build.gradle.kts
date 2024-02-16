@@ -53,3 +53,7 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+tasks.getByName<Jar>("jar") {
+	// Disable *-plain.jar generation
+	enabled = false
+}

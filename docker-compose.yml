@@ -1,0 +1,22 @@
+version: '3.5'
+services:
+  postgresql:
+    container_name: postgresql
+    image: postgres:11
+    ports:
+      - '25432:5432'
+    volumes:
+      - ./src/main/resources/data.sql:/docker-entrypoint-initdb.d/data.sql
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app_password
+      POSTGRES_DB: playgroundb
+  playground:
+    build:
+      context: .
+    environment:
+      ACTIVE_PROFILES: 'postgresql'
+    ports:
+      - '8008:8080'
+    depends_on:
+      - "postgresql"

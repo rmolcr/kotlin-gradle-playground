@@ -3,20 +3,9 @@ spring:
     cache-names: breaches
     caffeine:
       spec: maximumSize=500,expireAfterAccess=600s
-
-  datasource:
-    # H2 in memory db (DO NOT USE THIS FOR PRODUCTION!)
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:file:./build/h2/db
   sql:
     init:
       mode: always
-    # PostgreSQL
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:25432/playgroundb
-#    username: app
-#    password: app_password
-
 
 app:
   breaches:
