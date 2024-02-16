@@ -12,7 +12,6 @@ clean:
 	gradle clean
 
 docker-build: Dockerfile
-	gradle clean assemble
 	docker build \
 		-t $(GROUP_NAME)/$(APP_NAME):$(APP_VERSION) \
 		--no-cache \
