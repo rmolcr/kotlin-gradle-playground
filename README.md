@@ -11,7 +11,7 @@ Examples:
 - 3rd-party API integration using [RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)
   - Breach repository: https://haveibeenpwned.com/api/v2
 - Method caching with [Caffeine](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/io.html#io.caching.provider.caffeine)
-- (WIP) Testing with Spring, [mockk](https://mockk.io/), [mockito](https://github.com/mockito/mockito) and [springmockk](https://github.com/Ninja-Squad/springmockk)
+- Testing with Spring, [mockk](https://mockk.io/), [mockito](https://github.com/mockito/mockito) and [springmockk](https://github.com/Ninja-Squad/springmockk)
 
 ## Requisites
 - Java 17
@@ -42,8 +42,30 @@ app:
               - message.write
 ```
 
-## Build
-`./gradlew build`
+## Local setup (standalone)
 
-## Run
-`./gradlew bootRun`
+### Build
+`gradle build`
+
+### Run (gradle)
+`make ACTIVE_PROFILES=h2 gradle-run`
+
+### Run (java)
+`make run`
+
+### Clean resources
+`make clean` or `gradle clean`
+
+## Local setup (Docker)
+
+### Build
+`make docker-build`
+
+### Run (using H2)
+`make docker-run`
+
+### Run (using PostgreSQL)
+`make docker-run-postgresql` or `docker compose up`
+q
+### Clean resources
+`make docker-clean`

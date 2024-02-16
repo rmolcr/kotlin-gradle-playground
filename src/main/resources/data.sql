@@ -1,4 +1,4 @@
-DROP TABLE public.message IF EXISTS;
+DROP TABLE IF EXISTS public.message;
 
 CREATE TABLE public.message (
     id bigint NOT NULL,
