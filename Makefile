@@ -1,6 +1,6 @@
-GROUP_NAME:=$$(gradle properties -q | awk '/^group:/ {print $$2}')
-APP_NAME:=$$(gradle properties -q | awk '/^name:/ {print $$2}')
-APP_VERSION:=$$(gradle properties -q | awk '/^version:/ {print $$2}')
+GROUP_NAME:=$(shell gradle properties -q | awk '/^group:/ {print $$2}')
+APP_NAME:=$(shell gradle properties -q | awk '/^name:/ {print $$2}')
+APP_VERSION:=$(shell gradle properties -q | awk '/^version:/ {print $$2}')
 
 run:
 	java -jar -Dspring.profiles.active=$(ACTIVE_PROFILES) app.jar
@@ -14,7 +14,6 @@ clean:
 docker-build: Dockerfile
 	docker build \
 		-t $(GROUP_NAME)/$(APP_NAME):$(APP_VERSION) \
-		--no-cache \
 		--progress=plain \
 		.
 
