@@ -2,7 +2,7 @@ version: '3.5'
 services:
   postgresql:
     container_name: postgresql
-    image: postgres:11
+    image: postgres:16-alpine
     ports:
       - '25432:5432'
     volumes:
@@ -14,8 +14,10 @@ services:
   playground:
     build:
       context: .
-    environment:
-      ACTIVE_PROFILES: 'postgresql'
+    env_file:
+      - .env
+    entrypoint: '/usr/bin/java'
+    command: '-jar -Dspring.profiles.active=postgresql app.jar'
     ports:
       - '8008:8080'
     depends_on:
