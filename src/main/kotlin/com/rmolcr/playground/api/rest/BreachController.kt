@@ -20,25 +20,25 @@ class BreachController(
     private val breachService: BreachService
 ) {
 
-    @PreAuthorize("hasRole('message.read')")
+    @PreAuthorize("hasRole('breach.read')")
     @GetMapping("/breaches")
     fun getBreaches(): List<Breach>? {
         return breachService.fetch()
     }
 
-    @PreAuthorize("hasRole('message.read')")
+    @PreAuthorize("hasRole('breach.read')")
     @GetMapping("/breaches/domain")
     fun getBreachesByDomain(@RequestParam name: String): List<Breach>? {
         return breachService.getByDomain(name)
     }
 
-    @PreAuthorize("hasRole('message.read')")
+    @PreAuthorize("hasRole('breach.read')")
     @GetMapping("/breaches/data")
     fun getBreachesByDataType(@RequestParam type: String): List<Breach>? {
         return breachService.getByBreachedData(type)
     }
 
-    @PreAuthorize("hasRole('message.read')")
+    @PreAuthorize("hasRole('breach.read')")
     @GetMapping("/breaches/verified")
     fun getVerified(@RequestParam status: Boolean): List<Breach>? {
         return breachService.getVerified(status)

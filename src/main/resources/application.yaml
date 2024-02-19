@@ -17,9 +17,10 @@ app:
         - username: user1
           password: ${USER1_PWD}
           roles:
+            - breach.read
             - message.read
             - message.write
         - username: user2
-          password: ${USER1_PWD}
+          password: ${USER2_PWD}
           roles:
             - message.read

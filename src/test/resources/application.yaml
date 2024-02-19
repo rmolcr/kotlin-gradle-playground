@@ -8,7 +8,7 @@ app:
         - username: user1
           password: user1p
           roles:
-            - event.write
+            - breach.read
             - message.read
             - message.write
         - username: user2
