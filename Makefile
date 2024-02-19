@@ -3,7 +3,7 @@ APP_NAME:=$(shell gradle properties -q | awk '/^name:/ {print $$2}')
 APP_VERSION:=$(shell gradle properties -q | awk '/^version:/ {print $$2}')
 
 run:
-	java -jar -Dspring.profiles.active=$(ACTIVE_PROFILES) app.jar
+	java -jar -Dspring.profiles.active=$(ACTIVE_PROFILES) ./build/libs/playground-$(APP_VERSION).jar
 
 run-gradle:
 	gradle bootRun --args='--spring.profiles.active=$(ACTIVE_PROFILES)'
