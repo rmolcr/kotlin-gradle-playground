@@ -21,7 +21,9 @@ docker-run:
 	docker run \
 		-p 8080:8080 \
 		-e "ACTIVE_PROFILES=h2" \
-		$(GROUP_NAME)/$(APP_NAME):$(APP_VERSION)
+		--entrypoint "/usr/bin/java" \
+		$(GROUP_NAME)/$(APP_NAME):$(APP_VERSION) \
+		-jar -Dspring.profiles.active=${ACTIVE_PROFILES} app.jar
 
 docker-run-postgresql: docker-compose.yml
 	docker compose up
