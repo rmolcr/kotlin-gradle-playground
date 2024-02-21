@@ -31,4 +31,4 @@ jobs:
 
       - name: Run tests
         run:
-          gradle build test
+          gradle test

@@ -8,6 +8,11 @@ spring:
       mode: always
 
 app:
+  rest:
+    api:
+      name: "Playground API"
+      description: "A playground implementation of a REST API"
+      version: "0.1.0-SNAPSHOT"
   breaches:
     api:
       baseUrl: "https://haveibeenpwned.com/api/v2"
