@@ -8,6 +8,7 @@ Kotlin demo application just to play around and make any feature testing.
 Examples:
 - Data access with JPA, in-memory H2 and Postgres
 - REST API using Spring Web + Security
+- Swagger with [Springdoc](https://springdoc.org/#getting-started)
 - 3rd-party API integration using [RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)
   - Breach repository: https://haveibeenpwned.com/api/v2
 - Method caching with [Caffeine](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/io.html#io.caching.provider.caffeine)
