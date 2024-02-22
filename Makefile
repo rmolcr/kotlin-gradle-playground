@@ -6,10 +6,10 @@ run:
 	java -jar -Dspring.profiles.active=$(ACTIVE_PROFILES) ./build/libs/playground-$(APP_VERSION).jar
 
 run-gradle:
-	gradle bootRun --args='--spring.profiles.active=$(ACTIVE_PROFILES)'
+	./gradlew bootRun --args='--spring.profiles.active=$(ACTIVE_PROFILES)'
 
 clean:
-	gradle clean
+	./gradlew clean
 
 docker-build: Dockerfile
 	docker build \
