@@ -1,3 +1,4 @@
+[![Code CI](https://github.com/rmolcr/kotlinpg/actions/workflows/build.yml/badge.svg?event=push)](https://github.com/rmolcr/kotlinpg/actions/workflows/build.yml)
 # Kotlin playground project
 > **NOTE**: This code is intended only for testing purposes, not for Production use.
 
