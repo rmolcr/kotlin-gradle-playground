@@ -1,4 +1,8 @@
 app:
+  snyk:
+    rest:
+      api:
+        token: "fake-api-token"
   rest:
     api:
       name: "Playground API"
@@ -16,6 +20,7 @@ app:
             - breach.read
             - message.read
             - message.write
+            - snyk.read
         - username: user2
           password: user2p
           roles:
