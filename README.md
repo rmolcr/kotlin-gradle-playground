@@ -1,10 +1,14 @@
 [![Code CI](https://github.com/rmolcr/kotlinpg/actions/workflows/build.yml/badge.svg?event=push)](https://github.com/rmolcr/kotlinpg/actions/workflows/build.yml)
+
 # Kotlin playground project
 > **NOTE**: This code is intended only for testing purposes, not for Production use.
 
 ## Introduction
 
-Kotlin demo application just to play around and make any feature testing.
+This is a sample Kotlin application whose only purpose is to serve as a playground or lab for feature learning and testing.
+Most of the implemented examples are totally dummy just for the sake of simplicity, and they might not have any sense in a real-world use case.
+
+Any suggestion/fix/contibution is welcome, so feel totally free to submit your Pull Request.
 
 Examples:
 - Data access with JPA, in-memory H2 and Postgres
