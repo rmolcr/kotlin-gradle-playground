@@ -9,9 +9,10 @@ repositories {
 }
 
 plugins {
-	id("org.springframework.boot") version "3.2.2"
 	id("io.spring.dependency-management") version "1.1.4"
 	id("io.freefair.lombok") version "8.1.0"
+	id("org.openapi.generator") version "7.2.0"
+	id("org.springframework.boot") version "3.2.2"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.jpa") version "1.9.22"
 	kotlin("plugin.lombok") version "1.9.22"
@@ -35,6 +36,11 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 	implementation("org.springframework.security:spring-security-web")
 
+	//Dependencies for OpenAPI generated code for Twitter
+	implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+	implementation("com.squareup.moshi:moshi-adapters:1.14.0")
+	implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
 	runtimeOnly("com.h2database:h2:2.2.224")
 
 	testImplementation("com.ninja-squad:springmockk:3.1.1")
@@ -48,6 +54,7 @@ tasks.withType<KotlinCompile> {
 	kotlinOptions {
 		jvmTarget = "17"
 	}
+	dependsOn.add("openApiGenerateAll")
 }
 
 tasks.withType<Test> {
@@ -57,4 +64,35 @@ tasks.withType<Test> {
 tasks.getByName<Jar>("jar") {
 	// Disable *-plain.jar generation
 	enabled = false
+}
+
+val openApiConfig = mapOf(
+		"snykVersion" to "2024-01-23"
+)
+
+val openapiSpecs = mapOf(
+		"io.snyk" to "src/main/resources/openapi/snyk/${openApiConfig["snykVersion"]}.json"
+)
+openapiSpecs.forEach {
+	tasks.create("openApiGenerate-${it.key}", org.openapitools.generator.gradle.plugin.tasks.GenerateTask::class) {
+		generatorName.set("kotlin")
+		inputSpec.set("$rootDir/${it.value}")
+		outputDir.set("$buildDir/generated/${it.key}")
+		apiPackage.set("${it.key}.api")
+		modelPackage.set("${it.key}.model")
+		packageName.set("${it.key}")
+		invokerPackage.set("${it.key}.invoker")
+
+		configOptions.set(mapOf(
+				"dateLibrary" to "java8",
+				"omitGradleWrapper" to "true",
+		))
+	}
+}
+tasks.register("openApiGenerateAll") { dependsOn(openapiSpecs.keys.map { "openApiGenerate-$it" }) }
+
+kotlin.sourceSets {
+	main {
+		kotlin.srcDir("build/generated/io.snyk")
+	}
 }

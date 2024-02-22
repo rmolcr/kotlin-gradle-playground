@@ -1,4 +1,4 @@
-package com.rmolcr.playground
+package com.rmolcr.playground.service
 
 import com.rmolcr.playground.domain.Breach
 import com.rmolcr.playground.fixture.BreachFixture

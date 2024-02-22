@@ -1,4 +1,4 @@
-package com.rmolcr.playground
+package com.rmolcr.playground.service
 
 import com.rmolcr.playground.api.dto.MessageDTO
 import com.rmolcr.playground.domain.Message

@@ -1,13 +1,8 @@
-package com.rmolcr.playground
+package com.rmolcr.playground.controller
 
-import com.google.gson.Gson
 import com.ninjasquad.springmockk.MockkBean
-import com.rmolcr.playground.api.dto.MessageDTO
-import com.rmolcr.playground.domain.Message
 import com.rmolcr.playground.fixture.BreachFixture
-import com.rmolcr.playground.mapper.MessageMapper
 import com.rmolcr.playground.service.impl.BreachServiceImpl
-import com.rmolcr.playground.service.impl.MessageServiceImpl
 import io.mockk.every
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
@@ -15,15 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf
 import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic
 import org.springframework.test.context.junit.jupiter.SpringExtension
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.*
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 @ExtendWith(SpringExtension::class)
 @SpringBootTest

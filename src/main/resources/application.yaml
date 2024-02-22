@@ -1,6 +1,6 @@
 spring:
   cache:
-    cache-names: breaches
+    cache-names: breaches,snyk
     caffeine:
       spec: maximumSize=500,expireAfterAccess=600s
   sql:
@@ -8,6 +8,10 @@ spring:
       mode: always
 
 app:
+  snyk:
+    rest:
+      api:
+        token: "" # Needed in case ofqq authenticated Snyk API operations
   rest:
     api:
       name: "Playground API"
@@ -25,6 +29,7 @@ app:
             - breach.read
             - message.read
             - message.write
+            - snyk.read
         - username: user2
           password: ${USER2_PWD}
           roles:

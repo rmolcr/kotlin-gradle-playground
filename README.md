@@ -9,8 +9,10 @@ Examples:
 - Data access with JPA, in-memory H2 and Postgres
 - REST API using Spring Web + Security
 - Swagger with [Springdoc](https://springdoc.org/#getting-started)
-- 3rd-party API integration using [RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)
-  - Breach repository: https://haveibeenpwned.com/api/v2
+- 3rd-party REST API integration using [RestTemplate](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/client/RestTemplate.html)
+  - Breach repository: https://haveibeenpwned.com/api/v2 (Public API selected just as an example)
+- 3rd-party REST API integration using [OpenAPI Generator](https://github.com/OpenAPITools/openapi-generator/blob/master/README.md) [plugin](https://github.com/OpenAPITools/openapi-generator/tree/master/modules/openapi-generator-gradle-plugin)
+  - Snyk API: (https://apidocs.snyk.io/?version=2024-01-23#overview) (API selected as it offers OpenAPI spec, just for the sake of the example)
 - Method caching with [Caffeine](https://docs.spring.io/spring-boot/docs/3.0.x/reference/html/io.html#io.caching.provider.caffeine)
 - Testing with Spring, [mockk](https://mockk.io/), [mockito](https://github.com/mockito/mockito) and [springmockk](https://github.com/Ninja-Squad/springmockk)
 

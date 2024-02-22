@@ -1,4 +1,4 @@
-package com.rmolcr.playground
+package com.rmolcr.playground.controller
 
 import com.google.gson.Gson
 import com.ninjasquad.springmockk.MockkBean

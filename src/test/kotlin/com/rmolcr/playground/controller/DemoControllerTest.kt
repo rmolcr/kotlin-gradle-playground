@@ -1,4 +1,4 @@
-package com.rmolcr.playground
+package com.rmolcr.playground.controller
 
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.extension.ExtendWith
