@@ -12,7 +12,7 @@ plugins {
 	id("io.spring.dependency-management") version "1.1.4"
 	id("io.freefair.lombok") version "8.1.0"
 	id("org.openapi.generator") version "7.2.0"
-	id("org.springframework.boot") version "3.2.2"
+	id("org.springframework.boot") version "3.2.6"
 	kotlin("jvm") version "1.6.21"
 	kotlin("plugin.jpa") version "1.9.22"
 	kotlin("plugin.lombok") version "1.9.22"
@@ -26,7 +26,7 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1")
-	implementation("org.postgresql:postgresql:42.3.8")
+	implementation("org.postgresql:postgresql:42.3.9")
 	implementation("org.slf4j:slf4j-api")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
 	implementation("org.springframework.boot:spring-boot-starter-cache")
