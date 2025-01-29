@@ -25,32 +25,15 @@ Examples:
 - Java 17
 - Gradle 8.6
 
-## Configuration
-`resources\application.yml`
-- Caffeine:
-```yaml
-spring:
-  cache:
-    cache-names: breaches
-    caffeine:
-      spec: maximumSize=500,expireAfterAccess=600s
-```
-
-- In memory application user information:
-> DO NOT USE THIS FOR PRODUCTION!
-```yaml
-app:
-  security:
-    local:
-        users:
-          - username: user1
-            password: ${USER1_PW}
-            roles:
-              - message.read
-              - message.write
-```
-
 ## Local setup (standalone)
+
+### asdf setup
+```bash
+asdf plugin-add java
+asdf plugin-add gradle
+
+asdf install
+```
 
 ### Build
 `gradle build`
@@ -77,3 +60,28 @@ app:
 q
 ### Clean resources
 `make docker-clean`
+
+## Configuration
+`resources\application.yml`
+- Caffeine:
+```yaml
+spring:
+  cache:
+    cache-names: breaches
+    caffeine:
+      spec: maximumSize=500,expireAfterAccess=600s
+```
+
+- In memory application user information:
+> DO NOT USE THIS FOR PRODUCTION!
+```yaml
+app:
+  security:
+    local:
+        users:
+          - username: user1
+            password: ${USER1_PW}
+            roles:
+              - message.read
+              - message.write
+```
